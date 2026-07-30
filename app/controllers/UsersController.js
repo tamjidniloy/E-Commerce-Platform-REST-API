@@ -3,7 +3,7 @@ import {TokenEncode} from "../utility/tokenUtility.js";
 
 export const Login=async(req,res)=>{
     try {
-        return res.status(200).json({ status:"success", message:""});
+        return res.status(200).json({ status:"success", message:"I am stupid"});
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
