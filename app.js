@@ -149,11 +149,9 @@ const startServer=async()=>{
     }
     catch(error){
         console.error('Application startup failed:');
-        console.error(error.message);
+        console.error(error.toString());
         process.exit(1);
     }
 };
 export default app;
 void startServer();
-
-
