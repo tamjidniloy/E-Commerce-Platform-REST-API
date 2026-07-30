@@ -1,11 +1,13 @@
 {
   "name": "mern-x",
   "version": "1.0.0",
-  "description": "MERN-X is a comprehensive full-stack project structure designed to streamline the development of web applications using the popular MERN stack: MongoDB, Express.js, React, and Node.js. Built with simplicity and scalability in mind, MERN.js empowers developers to create robust and efficient applications from end to end.",
+  "description": "E-Commerce Projet Backend (REST API)",
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
