@@ -4,7 +4,7 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
-//import router from "./routes/api.js";
+import router from "./routes/api.js";
 import {
     APP_NAME,
     CORS_ORIGIN,
@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes must come after body parser
-//app.use("/api/v1", router);
+app.use("/api/v1", router);
 
 // App Settings
 app.disable('x-powered-by');
@@ -85,7 +85,7 @@ const limiter=rateLimit({
         message:'Too many requests. Please try again later.'
     }
 });
-//app.use('/api',router);
+app.use('/api',router);
 app.use(limiter);
 
 
