@@ -15,46 +15,46 @@ router.post("/Login", UsersController.Login)
 router.post("/Verification", UsersController.Verification)
 router.post("/CreateUserProfile", UsersController.CreateUserProfile)
 router.post("/UpdateUserProfile", UsersController.UpdateUserProfile)
-router.post("/ReadUserProfile", UsersController.ReadUserProfile)
+router.get("/ReadUserProfile", UsersController.ReadUserProfile)
 
 
 //Brands API
-router.post("/BrandList", BrandController.BrandList)
+router.get("/BrandList", BrandController.BrandList)
 
 
 //Categories API
-router.post("/CategoryList", CategoryController.CategoryList)
+router.get("/CategoryList", CategoryController.CategoryList)
 
 
 //Cart API
 router.post("/CreateCart", CartListController.CreateCart)
-router.post("/ReadCartList", CartListController.ReadCartList)
+router.get("/ReadCartList", CartListController.ReadCartList)
 router.post("/UpdateCart", CartListController.UpdateCart)
-router.post("/RemoveCart", CartListController.RemoveCart)
+router.get("/RemoveCart", CartListController.RemoveCart)
 
 
 //Wish API
 router.post("/CreateWish", WishListController.CreateWish)
-router.post("/ReadWishList", WishListController.ReadWishList)
+router.get("/ReadWishList", WishListController.ReadWishList)
 router.post("/UpdateWish", WishListController.UpdateWish)
 router.post("/RemoveWish", WishListController.RemoveWish)
 
 
-//Product API
-router.post("/ProductListByCategory", ProductController.ProductListByCategory)
-router.post("/ProductListByRemark", ProductController.ProductListByRemark)
-router.post("/ProductListByBrand", ProductController.ProductListByBrand)
-router.post("/ProductListBySlider", ProductController.ProductListBySlider)
-router.post("/ProductDetailsID", ProductController.ProductDetailsID)
-router.post("/ProductListByKeyword", ProductController.ProductListByKeyword)
-router.post("/ProductReviewListById", ProductController.ProductReviewListById)
+//Products API
+router.get("/ProductListByCategory", ProductController.ProductListByCategory)
+router.get("/ProductListByRemark", ProductController.ProductListByRemark)
+router.get("/ProductListByBrand", ProductController.ProductListByBrand)
+router.get("/ProductListBySlider", ProductController.ProductListBySlider)
+router.get("/ProductDetailsID", ProductController.ProductDetailsID)
+router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
+router.get("/ProductReviewListById", ProductController.ProductReviewListById)
 router.post("/CreateProductReview", ProductController.CreateProductReview)
 
 
 //Invoice API
 router.post("/CreateInvoice", InvoiceController.CreateInvoice)
-router.post("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
-router.post("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
+router.get("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
+router.get("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
 
 
 export default router;

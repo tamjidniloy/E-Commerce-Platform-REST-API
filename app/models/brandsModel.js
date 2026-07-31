@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const DataSchema_Brand = new mongoose.Schema(
     {
-        brandName: {type: String, required: true, index: true, unique: true},
+        brandName: {type: String, required: true, unique: true},
         brandImg: {type: String, required: true},
     },
     {
