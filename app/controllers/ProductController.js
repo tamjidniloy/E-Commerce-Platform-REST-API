@@ -1,13 +1,18 @@
 import {
     Brand_List_Service,
-    Category_List_Service, Product_Details_ID_Service, Product_List_BY_Remarks_Service, Product_List_BY_Review_Service,
+    Product_Details_ID_Service,
+    Product_List_BY_Brand_Service,
+    Product_List_BY_Category_Service,
+    Product_List_BY_Keyword_Service,
+    Product_List_BY_Remarks_Service,
+    Product_List_BY_Review_Service,
     Product_List_BY_Slider_Service
 } from "../service/ProductServices.js";
 
 
 export const ProductListByCategory=async(req,res)=>{
     try {
-        const result = await Category_List_Service(req);
+        const result = await Product_List_BY_Category_Service(req);
         return res.status(200).json({
             status: "success",
             message: "Product list by Category retrieved successfully",
@@ -35,7 +40,7 @@ export const ProductListByRemark=async(req,res)=>{
 
 export const ProductListByBrand=async(req,res)=>{
     try {
-        const result = await Brand_List_Service(req);
+        const result = await Product_List_BY_Brand_Service(req);
         return res.status(200).json({
             status: "success",
             message: "Product list by brand retrieved successfully",
@@ -51,7 +56,11 @@ export const ProductListByBrand=async(req,res)=>{
 export const ProductListBySlider=async(req,res)=>{
     try {
         let result = await Product_List_BY_Slider_Service();
-        return res.status(200).json({ status:"success", message:"Here is the Product Sliders : ", data : result });
+        return res.status(200).json({
+            status:"success",
+            message:"Here is the Product Sliders : ",
+            data : result
+        });
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
@@ -74,6 +83,12 @@ export const ProductDetailsID=async(req,res)=>{
 
 export const ProductReviewListById=async(req,res)=>{
     try {
+        const result = await Product_List_BY_Review_Service(req);
+        return res.status(200).json({
+            status: "success",
+            message: "Product list by review retrieved successfully",
+            data: result
+        });
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
@@ -82,7 +97,12 @@ export const ProductReviewListById=async(req,res)=>{
 
 export const ProductListByKeyword=async(req,res)=>{
     try {
-        return res.status(200).json({ status:"success", message:""});
+        const result = await Product_List_BY_Keyword_Service(req);
+        return res.status(200).json({
+            status: "success",
+            message: "Product list by keyword retrieved successfully",
+            data: result
+        });
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }

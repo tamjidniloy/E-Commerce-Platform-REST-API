@@ -47,8 +47,8 @@ router.get("/ProductListByRemark/:Remark", ProductController.ProductListByRemark
 router.get("/ProductListByBrand/:BrandID", ProductController.ProductListByBrand)
 router.get("/ProductListBySlider", ProductController.ProductListBySlider)
 router.get("/ProductDetailsID/:ProductID", ProductController.ProductDetailsID)
-router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
-router.get("/ProductReviewListById", ProductController.ProductReviewListById)
+router.get("/ProductListByKeyword/:keyword", ProductController.ProductListByKeyword)
+router.get("/ProductReviewListById/:ProductID", ProductController.ProductReviewListById)
 router.post("/CreateProductReview", ProductController.CreateProductReview)
 
 
