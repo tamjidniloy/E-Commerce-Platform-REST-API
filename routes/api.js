@@ -43,10 +43,10 @@ router.post("/RemoveWish", WishListController.RemoveWish)
 
 //Products API
 router.get("/ProductListByCategory/:CategoryID", ProductController.ProductListByCategory)
-router.get("/ProductListByRemark", ProductController.ProductListByRemark)
+router.get("/ProductListByRemark/:Remark", ProductController.ProductListByRemark)
 router.get("/ProductListByBrand/:BrandID", ProductController.ProductListByBrand)
 router.get("/ProductListBySlider", ProductController.ProductListBySlider)
-router.get("/ProductDetailsID", ProductController.ProductDetailsID)
+router.get("/ProductDetailsID/:ProductID", ProductController.ProductDetailsID)
 router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
 router.get("/ProductReviewListById", ProductController.ProductReviewListById)
 router.post("/CreateProductReview", ProductController.CreateProductReview)

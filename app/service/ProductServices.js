@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import categoriesModel from "../models/categoriesModel.js";
 import slidersModel from "../models/slidersModel.js";
 import CategoryModel from "../models/categoriesModel.js";
 import BrandModel from "../models/brandsModel.js";
@@ -25,12 +26,65 @@ export const Category_List_Service = async () => {
     }
 };
 
-export const Product_List_BY_Category_Service = async () => {
+export const Product_List_BY_Category_Service = async (req) => {
+    try {
+        let CategoryID = req.params.CategoryID;
+        const categoryObjectID = new mongoose.Types.ObjectId(CategoryID);
 
+        let MatchStage={$match:{categoryID:categoryObjectID}}
+
+        let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
+        let JoinWithCategoryStage={$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
+
+        let UnwindBrandStage={$unwind:"$brand"}
+        let UnwindCategoryStage={$unwind:"$category"}
+
+        let ProjectionStage={$project:{'brand._id':0,'category._id':0,'categoryID':0,'brandID':0}}
+
+        // Query
+        let data= await ProductModel.aggregate([
+            MatchStage,
+            JoinWithBrandStage,
+            JoinWithCategoryStage,
+            UnwindBrandStage,
+            UnwindCategoryStage,
+            ProjectionStage
+        ])
+
+        return {status:"success",data:data}
+    }catch (error) {
+        console.log(error);
+        return {status:"fail", message:error.toString()}
+    }
 };
 
-export const Product_List_BY_Remarks_Service = async () => {
+export const Product_List_BY_Remarks_Service = async (req) => {
+    try {
+        let Remark = req.params.Remark;
+        let MatchStage={$match:{remark:Remark}}
+        let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
+        let JoinWithCategoryStage={$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
 
+        let UnwindBrandStage={$unwind:"$brand"}
+        let UnwindCategoryStage={$unwind:"$category"}
+
+        let ProjectionStage={$project:{'brand._id':0,'category._id':0,'categoryID':0,'brandID':0}}
+
+        // Query
+        let data= await ProductModel.aggregate([
+            MatchStage,
+            JoinWithBrandStage,
+            JoinWithCategoryStage,
+            UnwindBrandStage,
+            UnwindCategoryStage,
+            ProjectionStage
+        ])
+
+        return {status:"success",data:data}
+    }catch (error){
+        console.log(error);
+        return {status:"fail", message:error.toString()}
+    }
 };
 
 export const Product_List_BY_Brand_Service = async (req) => {
@@ -75,8 +129,36 @@ export const Product_List_BY_Slider_Service = async () => {
     }
 };
 
-export const Product_Details_ID_Service = async () => {
+export const Product_Details_ID_Service = async (req) => {
+    try {
+        let ProductID = req.params.ProductID;
+        const ProductDetailsObjectID = new mongoose.Types.ObjectId(ProductID);
 
+        let MatchStage={$match:{_id:ProductDetailsObjectID}}
+
+        let JoinWithBrandStage= {$lookup:{from:"brands",localField:"brandID",foreignField:"_id",as:"brand"}};
+        let JoinWithCategoryStage={$lookup:{from:"categories",localField:"categoryID",foreignField:"_id",as:"category"}};
+
+        let UnwindBrandStage={$unwind:"$brand"}
+        let UnwindCategoryStage={$unwind:"$category"}
+
+        let ProjectionStage={$project:{'brand._id':0,'category._id':0,'categoryID':0,'brandID':0}}
+
+        // Query
+        let data= await ProductModel.aggregate([
+            MatchStage,
+            JoinWithBrandStage,
+            JoinWithCategoryStage,
+            UnwindBrandStage,
+            UnwindCategoryStage,
+            ProjectionStage
+        ])
+
+        return {status:"success",data:data}
+    }catch (error) {
+        console.log(error);
+        return {status:"fail", message:error.toString()}
+    }
 };
 
 export const Product_List_BY_Keyword_Service = async () => {
