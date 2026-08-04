@@ -11,5 +11,5 @@ const DataSchema_Brand = new mongoose.Schema(
     }
 )
 
-const BrandModel = mongoose.model('brand', DataSchema_Brand)
+const BrandModel = mongoose.model('brands', DataSchema_Brand)
 export default BrandModel

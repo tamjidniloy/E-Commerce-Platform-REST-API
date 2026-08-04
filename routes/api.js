@@ -8,6 +8,7 @@ import * as CategoryController from "../app/controllers/CategoryController.js"
 import * as InvoiceController from "../app/controllers/InvoiceController.js"
 import * as ProductController from "../app/controllers/ProductController.js"
 import * as WishListController from "../app/controllers/WishListController.js"
+import {ProductListByBrand} from "../app/controllers/ProductController.js";
 
 
 //Users API
@@ -41,9 +42,9 @@ router.post("/RemoveWish", WishListController.RemoveWish)
 
 
 //Products API
-router.get("/ProductListByCategory", ProductController.ProductListByCategory)
+router.get("/ProductListByCategory/:CategoryID", ProductController.ProductListByCategory)
 router.get("/ProductListByRemark", ProductController.ProductListByRemark)
-router.get("/ProductListByBrand", ProductController.ProductListByBrand)
+router.get("/ProductListByBrand/:BrandID", ProductController.ProductListByBrand)
 router.get("/ProductListBySlider", ProductController.ProductListBySlider)
 router.get("/ProductDetailsID", ProductController.ProductDetailsID)
 router.get("/ProductListByKeyword", ProductController.ProductListByKeyword)
