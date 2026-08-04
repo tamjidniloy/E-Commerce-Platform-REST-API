@@ -1,3 +1,4 @@
+import ProfileModel from "../models/profilesModel.js";
 import {TokenEncode} from "../utility/tokenUtility.js";
 import UserModel from "../models/usersModel.js";
 import SendEmail from "../utility/emailUtility.js";
@@ -20,6 +21,7 @@ export const UserLoginService = async (req) => {
 }
 
 
+
 export const UserVerificationService = async (req) => {
     try {
         const email = req.body.email;
@@ -34,7 +36,7 @@ export const UserVerificationService = async (req) => {
         let userEmail = user.email;
         let userID = user._id.toString();
         const token = TokenEncode(userEmail, userID);
-        await UserModel.updateOne({ _id: userID}, { $set: { otp: 0 } });
+        //await UserModel.updateOne({ _id: userID}, { $set: { otp: 0 } });
         return {
             status: "success",
             message: "OTP verified successfully",
@@ -47,9 +49,15 @@ export const UserVerificationService = async (req) => {
 }
 
 
+
 export const UserCreatProfileService = async (req) => {
     try {
-
+        let user_id = req.headers.user_id;
+        let user_email = req.body.email;
+        let reqBody = req.body;
+        reqBody.userID = user_id;
+        let data = await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});
+        return {status:"success",message:"Profile saved successfully", data:data};
     }catch(error) {
         console.log(error)
         return {status:"error", message:error.toString()};
@@ -57,9 +65,12 @@ export const UserCreatProfileService = async (req) => {
 }
 
 
+
 export const UserReadProfileService = async (req) => {
     try {
-
+        let user_id = req.headers.user_id;
+        let data = await ProfileModel.findOne({userID:user_id});
+        return {status:"success",message:"Profile read successfully", data:data};
     }catch(error) {
         console.log(error)
         return {status:"error", message:error.toString()};
@@ -69,7 +80,12 @@ export const UserReadProfileService = async (req) => {
 
 export const UserUpdateProfileService = async (req) => {
     try {
-
+        let user_id = req.headers.user_id;
+        let user_email = req.body.email;
+        let reqBody = req.body;
+        reqBody.userID = user_id;
+        await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});
+        return {status:"success",message:"Profile Updated successfully"};
     }catch(error) {
         console.log(error)
         return {status:"error", message:error.toString()};

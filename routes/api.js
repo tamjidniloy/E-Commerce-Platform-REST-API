@@ -14,9 +14,9 @@ import {ProductListByBrand} from "../app/controllers/ProductController.js";
 //Users API
 router.post("/Login", UsersController.Login)
 router.post("/Verification", UsersController.Verification)
-router.post("/CreateUserProfile", UsersController.CreateUserProfile)
-router.post("/UpdateUserProfile", UsersController.UpdateUserProfile)
-router.get("/ReadUserProfile", UsersController.ReadUserProfile)
+router.post("/CreateUserProfile",AuthMiddleware, UsersController.CreateUserProfile)
+router.post("/UpdateUserProfile",AuthMiddleware, UsersController.UpdateUserProfile)
+router.get("/ReadUserProfile",AuthMiddleware, UsersController.ReadUserProfile)
 
 
 //Brands API

@@ -26,7 +26,7 @@ export const Verification = async (req, res) => {
         if (result.status === "error") {
             return res.status(400).json(result);
         }
-        return res.status(200).json(result);
+        return res.status(200).json({status: "success", message: "Verification successful", data: result});
     } catch (error) {
         return res.status(500).json({
             status: "error",
@@ -36,10 +36,14 @@ export const Verification = async (req, res) => {
 };
 
 
+
 export const CreateUserProfile=async(req,res)=>{
     try {
         let result = await UserCreatProfileService(req);
-        return res.status(200).json({ status:"success", message:""});
+        if (result.status === "error") {
+            return res.status(400).json(result);
+        }
+        return res.status(200).json({status: "success", message: "Profile Creation successful", data: result});
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
@@ -49,7 +53,10 @@ export const CreateUserProfile=async(req,res)=>{
 export const ReadUserProfile=async(req,res)=>{
     try {
         let result = await UserReadProfileService(req);
-        return res.status(200).json({ status:"success", message:""});
+        if (result.status === "error") {
+            return res.status(400).json(result);
+        }
+        return res.status(200).json({status: "success", message: "Profile read successful", data: result});
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
@@ -59,7 +66,10 @@ export const ReadUserProfile=async(req,res)=>{
 export const UpdateUserProfile=async(req,res)=>{
     try {
         let result = await UserUpdateProfileService(req);
-        return res.status(200).json({ status:"success", message:""});
+        if (result.status === "error") {
+            return res.status(400).json(result);
+        }
+        return res.status(200).json({status: "success", message: "Profile Updated successful", data: result});
     }catch (error) {
         return res.status(500).json({ status:"error", error: error.toString() });
     }
