@@ -84,8 +84,8 @@ export const UserUpdateProfileService = async (req) => {
         let user_email = req.body.email;
         let reqBody = req.body;
         reqBody.userID = user_id;
-        await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});
-        return {status:"success",message:"Profile Updated successfully"};
+        let data = await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});
+        return {status:"success",message:"Profile Updated successfully", data:data};
     }catch(error) {
         console.log(error)
         return {status:"error", message:error.toString()};
