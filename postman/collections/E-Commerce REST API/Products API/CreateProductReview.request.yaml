@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{BASE_URL}}/CreateProductReview"
+method: POST
+settings: {}
+order: 8000

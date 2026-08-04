@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{BASE_URL}}/UpdateWish"
+method: POST
+settings: {}
+order: 3000

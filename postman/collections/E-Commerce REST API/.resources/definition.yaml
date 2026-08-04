@@ -1,0 +1,9 @@
+$kind: collection
+name: E-Commerce REST API
+description: ""
+variables:
+  - key: BASE_URL
+    value: ""
+    secret: false
+  - key: TOKEN
+    secret: true

@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{BASE_URL}}/Login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"tamjidniloy22@gmail.com\"\r
+
+    }"
+settings: {}
+order: 1000

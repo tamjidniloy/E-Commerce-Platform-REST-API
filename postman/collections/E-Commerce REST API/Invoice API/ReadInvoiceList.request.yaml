@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{BASE_URL}}/ReadInvoiceList"
+method: GET
+settings: {}
+order: 2000

@@ -1,0 +1,5 @@
+workspace:
+  id: 5f9d8952-25ae-4000-8afd-b91b493dfe34
+cloudResources:
+  collections:
+    ../postman/collections/E-Commerce REST API: 55459793-9d714ff8-2c29-4d1f-9919-9cab11542aff

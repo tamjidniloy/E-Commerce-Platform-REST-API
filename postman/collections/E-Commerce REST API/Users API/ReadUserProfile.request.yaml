@@ -1,0 +1,7 @@
+$kind: http-request
+url: "{{BASE_URL}}/ReadUserProfile"
+method: GET
+headers:
+  token: "{{TOKEN}}"
+settings: {}
+order: 5000

@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{BASE_URL}}/ProductReviewListById/654dbf25abda0c85053c9902"
+method: GET
+settings: {}
+order: 7000

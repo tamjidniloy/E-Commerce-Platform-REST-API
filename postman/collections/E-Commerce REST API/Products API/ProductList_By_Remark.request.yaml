@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{BASE_URL}}/ProductListByRemark/popular"
+method: GET
+settings: {}
+order: 2000

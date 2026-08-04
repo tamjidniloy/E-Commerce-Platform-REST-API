@@ -1,0 +1,44 @@
+$kind: http-request
+url: "{{BASE_URL}}/CreateUserProfile"
+method: POST
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"cus_name\": \"Tamjid Niloy\",\r
+
+    \  \"cus_add\": \"House 159/3/C/1, Road 02, Shyamoli, Dhaka-1207\",\r
+
+    \  \"cus_city\": \"Dhaka\",\r
+
+    \  \"cus_state\": \"Dhaka\",\r
+
+    \  \"cus_postcode\": \"1207\",\r
+
+    \  \"cus_country\": \"Bangladesh\",\r
+
+    \  \"cus_phone\": \"01725121645\",\r
+
+    \  \"cus_fax\": \"02-9876543\",\r
+
+    \r
+
+    \  \"ship_name\": \"Tanvir Ahmed\",\r
+
+    \  \"ship_add\": \"House 159/3/C/1, Road 02, Shyamoli, Dhaka-1207\",\r
+
+    \  \"ship_city\": \"Dhaka\",\r
+
+    \  \"ship_state\": \"Dhaka\",\r
+
+    \  \"ship_postcode\": \"1207\",\r
+
+    \  \"ship_country\": \"Bangladesh\",\r
+
+    \  \"ship_phone\": \"01849757847\"\r
+
+    }"
+settings: {}
+order: 3000
