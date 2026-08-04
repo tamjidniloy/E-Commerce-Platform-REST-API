@@ -9,7 +9,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-const SendEmail = async (emailTo, emailText, emailSubject) => {
+const SendEmail = async (emailTo, emailSubject, emailText) => {
     const mailOptions = {
         from: EMAIL_FROM,
         to: emailTo,
