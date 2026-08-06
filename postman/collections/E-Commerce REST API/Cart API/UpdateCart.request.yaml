@@ -1,5 +1,23 @@
 $kind: http-request
+name: UpdateCart
 url: "{{BASE_URL}}/UpdateCart"
-method: POST
+method: GET
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"id\":\"6a74ada61a3631f26651a266\",\r
+
+    \    \"color\":\"red\",\r
+
+    \    \"qty\":\"1\",\r
+
+    \    \"size\":\"20\"\r
+
+    \r
+
+    }"
 settings: {}
 order: 3000

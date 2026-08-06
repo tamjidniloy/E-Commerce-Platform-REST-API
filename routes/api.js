@@ -30,6 +30,7 @@ router.get("/CategoryList", CategoryController.CategoryList)
 //Cart API
 router.post("/CreateCart",AuthMiddleware, CartListController.CreateCart)
 router.get("/ReadCartList",AuthMiddleware, CartListController.ReadCartList)
+router.get("/UpdateCart",AuthMiddleware, CartListController.UpdateCart)
 router.post("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 

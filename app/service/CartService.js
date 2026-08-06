@@ -53,6 +53,25 @@ export const ReadCartListService=async(req)=>{
 }
 
 
+export const UpdateCartListService=async(req)=>{
+    try {
+        let user_id = new ObjectId(req.headers.user_id);
+        let {color,qty,size} = req.body;
+        let id = new ObjectId(req.body.id);
+        let postJSON={
+            color:color,
+            qty:qty,
+            size:size
+        }
+        let data = await CartModel.updateOne({userID:user_id, _id:id},{$set:postJSON});
+        return {status:"success", message:"Cart updated successfully",data:data};
+    }catch (error) {
+        console.log(error)
+        return {status:"error", message:error.toString()};
+    }
+}
+
+
 export const RemoveCartListService = async (req) => {
     try {
         const cartId = new ObjectId(req.body);
