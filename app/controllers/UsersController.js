@@ -1,3 +1,7 @@
+import {CreateReviewService,
+        UpdateReviewService
+} from "../service/ProductReviewService.js";
+
 import {
     UserCreatProfileService,
     UserLoginService, UserReadProfileService,
@@ -77,6 +81,31 @@ export const UpdateUserProfile=async(req,res)=>{
 
 
 
+export const CreateUserReview=async(req,res)=>{
+    try {
+        let result = await CreateReviewService(req);
+        if (result.status === "error") {
+            return res.status(400).json(result);
+        }
+        return res.status(200).json({status: "success", message: "Profile Creation successful", data: result});
+    }catch (error) {
+        return res.status(500).json({ status:"error", error: error.toString() });
+    }
+}
+
+
+
+export const UpdateUserReview=async(req,res)=>{
+    try {
+        let result = await UpdateReviewService(req);
+        if (result.status === "error") {
+            return res.status(400).json(result);
+        }
+        return res.status(200).json({status: "success", message: "Profile Updated successful", data: result});
+    }catch (error) {
+        return res.status(500).json({ status:"error", error: error.toString() });
+    }
+}
 
 
 

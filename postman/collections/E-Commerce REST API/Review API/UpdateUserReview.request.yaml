@@ -1,0 +1,18 @@
+$kind: http-request
+name: UpdateUserReview
+url: "{{BASE_URL}}/UpdateUserReview"
+method: POST
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"productID\":\"654dbf25abda0c85053c9902\",\r
+
+    \    \"des\":\"ABCdntytn\",\r
+
+    \    \"rating\":\"423456\"\r
+
+    }"
+order: 2698516601698830

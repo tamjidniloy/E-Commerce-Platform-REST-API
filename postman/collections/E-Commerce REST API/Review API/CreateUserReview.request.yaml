@@ -1,0 +1,18 @@
+$kind: http-request
+name: CreateUserReview
+url: "{{BASE_URL}}/CreateUserReview"
+method: POST
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"productID\":\"654dbf25abda0c85053c9902\",\r
+
+    \    \"des\":\"ABCd\",\r
+
+    \    \"rating\":\"423456\"\r
+
+    }"
+order: 1786049183567

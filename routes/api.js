@@ -34,6 +34,10 @@ router.get("/UpdateCart",AuthMiddleware, CartListController.UpdateCart)
 router.post("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 
+//Review
+router.post("/CreateUserReview",AuthMiddleware, UsersController.CreateUserReview)
+router.post("/UpdateUserReview",AuthMiddleware, UsersController.UpdateUserReview)
+
 //Wish API
 router.post("/CreateWish",AuthMiddleware ,WishListController.CreateWish)
 router.get("/ReadWishList",AuthMiddleware, WishListController.ReadWishList)
