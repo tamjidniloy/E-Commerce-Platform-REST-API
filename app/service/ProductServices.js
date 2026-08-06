@@ -18,8 +18,7 @@ const productDetailsStages = [
     {$lookup: {from: "categories", localField: "categoryID", foreignField: "_id", as: "category"}},
     {$unwind: "$brand" },
     {$unwind: "$category" },
-    {$project: {"brand._id": 0, "category._id": 0, categoryID: 0, brandID: 0}}
-];
+    {$project: {"brand._id": 0, "category._id": 0, categoryID: 0, brandID: 0}}];
 const findProducts = async (matchQuery) => {
     return ProductModel.aggregate([{ $match: matchQuery }, ...productDetailsStages]);
 };
