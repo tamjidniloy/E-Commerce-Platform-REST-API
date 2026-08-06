@@ -28,17 +28,16 @@ router.get("/CategoryList", CategoryController.CategoryList)
 
 
 //Cart API
-router.post("/CreateCart", CartListController.CreateCart)
-router.get("/ReadCartList", CartListController.ReadCartList)
-router.post("/UpdateCart", CartListController.UpdateCart)
-router.get("/RemoveCart", CartListController.RemoveCart)
+router.post("/CreateCart",AuthMiddleware, CartListController.CreateCart)
+router.get("/ReadCartList",AuthMiddleware, CartListController.ReadCartList)
+router.post("/UpdateCart",AuthMiddleware, CartListController.UpdateCart)
+router.get("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 
 //Wish API
-router.post("/CreateWish", WishListController.CreateWish)
-router.get("/ReadWishList", WishListController.ReadWishList)
-router.post("/UpdateWish", WishListController.UpdateWish)
-router.post("/RemoveWish", WishListController.RemoveWish)
+router.post("/CreateWish",AuthMiddleware ,WishListController.CreateWish)
+router.get("/ReadWishList",AuthMiddleware, WishListController.ReadWishList)
+router.post("/RemoveWish",AuthMiddleware, WishListController.RemoveWish)
 
 
 //Products API
@@ -53,9 +52,9 @@ router.post("/CreateProductReview", ProductController.CreateProductReview)
 
 
 //Invoice API
-router.post("/CreateInvoice", InvoiceController.CreateInvoice)
-router.get("/ReadInvoiceList", InvoiceController.ReadInvoiceList)
-router.get("/ReadInvoiceDetails", InvoiceController.ReadInvoiceDetails)
+router.post("/CreateInvoice",AuthMiddleware, InvoiceController.CreateInvoice)
+router.get("/ReadInvoiceList",AuthMiddleware, InvoiceController.ReadInvoiceList)
+router.get("/ReadInvoiceDetails",AuthMiddleware, InvoiceController.ReadInvoiceDetails)
 
 
 export default router;

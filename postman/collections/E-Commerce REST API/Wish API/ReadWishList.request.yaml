@@ -1,5 +1,8 @@
 $kind: http-request
+name: ReadWishList
 url: "{{BASE_URL}}/ReadWishList"
 method: GET
+headers:
+  token: "{{TOKEN}}"
 settings: {}
 order: 2000

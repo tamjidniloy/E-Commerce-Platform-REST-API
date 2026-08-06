@@ -1,5 +1,6 @@
 $kind: http-request
-url: "{{BASE_URL}}/ProductListByRemark/popular"
+name: ProductList_By_Remark
+url: "{{BASE_URL}}/ProductListByRemark/new"
 method: GET
 settings: {}
 order: 2000
