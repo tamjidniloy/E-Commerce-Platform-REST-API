@@ -1,5 +1,15 @@
 $kind: http-request
+name: RemoveCart
 url: "{{BASE_URL}}/RemoveCart"
-method: GET
+method: POST
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"id\":\"6a74a9ee786da0ea25563ed7\"\r
+
+    }"
 settings: {}
 order: 4000

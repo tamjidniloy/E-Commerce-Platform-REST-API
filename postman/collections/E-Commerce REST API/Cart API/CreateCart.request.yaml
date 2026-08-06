@@ -1,5 +1,23 @@
 $kind: http-request
+name: CreateCart
 url: "{{BASE_URL}}/CreateCart"
 method: POST
+headers:
+  token: "{{TOKEN}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"productID\":\"654dbf2aabda0c85053c9905\",\r
+
+    \    \"color\":\"Blue\",\r
+
+    \    \"qty\":\"10\",\r
+
+    \    \"size\":\"20\"\r
+
+    \r
+
+    }"
 settings: {}
 order: 1000

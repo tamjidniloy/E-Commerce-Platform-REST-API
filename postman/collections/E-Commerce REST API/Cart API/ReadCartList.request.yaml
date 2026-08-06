@@ -1,5 +1,8 @@
 $kind: http-request
+name: ReadCartList
 url: "{{BASE_URL}}/ReadCartList"
 method: GET
+headers:
+  token: "{{TOKEN}}"
 settings: {}
 order: 2000

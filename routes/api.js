@@ -30,8 +30,7 @@ router.get("/CategoryList", CategoryController.CategoryList)
 //Cart API
 router.post("/CreateCart",AuthMiddleware, CartListController.CreateCart)
 router.get("/ReadCartList",AuthMiddleware, CartListController.ReadCartList)
-router.post("/UpdateCart",AuthMiddleware, CartListController.UpdateCart)
-router.get("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
+router.post("/RemoveCart",AuthMiddleware, CartListController.RemoveCart)
 
 
 //Wish API
