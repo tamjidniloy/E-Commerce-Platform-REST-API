@@ -1,4 +1,4 @@
-import {CreateWishListService, RemoveWishListService} from "../service/WishService.js";
+import {CreateWishListService, ReadWishListService, RemoveWishListService} from "../service/WishService.js";
 
 export const CreateWish=async(req,res)=>{
     try {
@@ -16,9 +16,9 @@ export const CreateWish=async(req,res)=>{
 
 export const ReadWishList=async(req,res)=>{
     try {
-        let result = await RemoveWishListService(req);
+        let result = await ReadWishListService(req);
         if(result.status === "success") {
-            return res.status(200).json({ status:"success", message:"Deleted Wishlist Successfully",data:result});
+            return res.status(200).json({ status:"success", message:"Here is the wish list : ",data:result});
         }else{
             return res.status(400).json(result);
         }
