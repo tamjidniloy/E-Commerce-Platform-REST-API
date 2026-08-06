@@ -1,4 +1,5 @@
 $kind: http-request
+name: Verification
 url: "{{BASE_URL}}/Verification"
 method: POST
 body:
@@ -7,7 +8,7 @@ body:
 
     \    \"email\":\"tamjidniloy22@gmail.com\",\r
 
-    \    \"otp\" :\"503938\"\r
+    \    \"otp\" :\"915322\"\r
 
     }"
 settings: {}

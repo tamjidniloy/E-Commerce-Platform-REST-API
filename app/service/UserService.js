@@ -3,17 +3,16 @@ import {TokenEncode} from "../utility/tokenUtility.js";
 import UserModel from "../models/usersModel.js";
 import SendEmail from "../utility/emailUtility.js";
 
+
 export const UserLoginService = async (req) => {
     try {
         let emailTo= req.body.email;
         let code = Math.floor(100000+Math.random()*900000);
         let EmailSubject = `Email Verification`;
         let EmailText = `Your Varification Code is : ${code}`;
-
         await SendEmail(emailTo, EmailSubject, EmailText);
         await UserModel.updateOne({email:emailTo},{$set:{otp:code}},{upsert:true});
         return {status:"success",message:"6 digit code send successfully"};
-
     }catch(error) {
         console.log(error)
         return {status:"error", message:error.toString()};
@@ -53,7 +52,6 @@ export const UserVerificationService = async (req) => {
 export const UserCreatProfileService = async (req) => {
     try {
         let user_id = req.headers.user_id;
-        let user_email = req.body.email;
         let reqBody = req.body;
         reqBody.userID = user_id;
         let data = await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});
@@ -81,7 +79,6 @@ export const UserReadProfileService = async (req) => {
 export const UserUpdateProfileService = async (req) => {
     try {
         let user_id = req.headers.user_id;
-        let user_email = req.body.email;
         let reqBody = req.body;
         reqBody.userID = user_id;
         let data = await ProfileModel.updateOne({userID:user_id},{$set:reqBody}, {upsert:true});

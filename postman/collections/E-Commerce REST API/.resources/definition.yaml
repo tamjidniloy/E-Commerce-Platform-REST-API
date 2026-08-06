@@ -4,6 +4,8 @@ description: ""
 variables:
   - key: BASE_URL
     value: ""
+    disabled: false
     secret: false
   - key: TOKEN
     secret: true
+    disabled: false
