@@ -1,4 +1,5 @@
 import express from "express";
+import {PaymentIPN} from "../app/controllers/InvoiceController.js";
 const router = express.Router();
 import AuthMiddleware from "../app/middlewares/AuthMiddleware.js"
 import * as UsersController from "../app/controllers/UsersController.js"
@@ -57,6 +58,10 @@ router.post("/CreateProductReview", ProductController.CreateProductReview)
 
 //Invoice API
 router.post("/CreateInvoice",AuthMiddleware, InvoiceController.CreateInvoice)
+router.post("/PaymentSuccess/:trxID",AuthMiddleware, InvoiceController.PaymentSuccess)
+router.post("/PaymentCancel/:trxID",AuthMiddleware, InvoiceController.PaymentCancel)
+router.post("/PaymentFail/:trxID",AuthMiddleware, InvoiceController.PaymentFail)
+router.post("/PaymentIPN/:trxID",AuthMiddleware, InvoiceController.PaymentIPN)
 router.get("/ReadInvoiceList",AuthMiddleware, InvoiceController.ReadInvoiceList)
 router.get("/ReadInvoiceDetails",AuthMiddleware, InvoiceController.ReadInvoiceDetails)
 
